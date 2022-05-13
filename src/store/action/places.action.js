@@ -1,10 +1,19 @@
-import { PLACES } from "./types";
+import  PLACES  from './types/places.types';
 
 const { ADD_PLACE } = PLACES;
 
-export const addPlace = (placeName) => {
-    return {
-        type: ADD_PLACE,
-        placeName: {placeName}
-    }
+export default {
+    addPlace : (name) => {
+        return {
+            type: ADD_PLACE,
+            placeName: {
+                name
+            }
+        }
+ 
+    }   
 };
+
+
+
+

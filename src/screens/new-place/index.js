@@ -1,13 +1,36 @@
-import React from 'react';
-import { View,Text } from 'react-native';
-import { styles } from './style';
+import React, {useState} from 'react';
+import {View, Text, TextInput, ScrollView, Button} from 'react-native';
+import {styles} from './style';
+import {COLORS} from '../../constants';
+import {useDispatch} from 'react-redux';
+import placeActions from '../../store/action/places.action';
 
-const NewPlace = () => {
-    return (
-        <View style={styles.container}>
-            <Text>NewPlace Screen</Text>
-        </View>
-    )
-}
+const NewPlace = ({navigation}) => {
+  const dispatch = useDispatch();
+  const [name, setName] = useState('');
+
+  const handleNameChange = text => setName(text);
+  const handleSavePlace = () => {
+    dispatch(placeActions.addPlace(name));
+    navigation.navigate('Place');
+  };
+  return (
+    <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.label}>Name</Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={handleNameChange}
+          value={name}
+        />
+        <Button
+          title="Save place"
+          onPress={() => handleSavePlace()}
+          color={COLORS.secundaryColor}
+        />
+      </View>
+    </ScrollView>
+  );
+};
 
 export default NewPlace;

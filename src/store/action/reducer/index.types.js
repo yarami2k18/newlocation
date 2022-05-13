@@ -1,0 +1,1 @@
+export { default as PLACES } from '../types/places.types';

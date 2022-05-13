@@ -1,5 +1,5 @@
 package com.newlocation;
-import android.os.Bundle;
+
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
@@ -14,23 +14,20 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "newlocation";
   }
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-      super.onCreate(null);
 
   /**
    * Returns the instance of the {@link ReactActivityDelegate}. There the RootView is created and
    * you can specify the rendered you wish to use (Fabric or the older renderer).
    */
-  @Override
-  protected ReactActivityDelegate createReactActivityDelegate() {
-    return new MainActivityDelegate(this, getMainComponentName());
-  }
-
-  public static class MainActivityDelegate extends ReactActivityDelegate {
-    public MainActivityDelegate(ReactActivity activity, String mainComponentName) {
-      super(activity, mainComponentName);
+    @Override
+    protected ReactActivityDelegate createReactActivityDelegate() {
+      return new MainActivityDelegate(this, getMainComponentName());
     }
+
+    public static class MainActivityDelegate extends ReactActivityDelegate {
+      public MainActivityDelegate(ReactActivity activity, String mainComponentName) {
+        super(activity, mainComponentName);
+      }
 
     @Override
     protected ReactRootView createRootView() {
